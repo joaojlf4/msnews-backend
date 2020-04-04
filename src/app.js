@@ -5,12 +5,10 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 const app = express();
 
-app.use(cors({
-  origin: process.env.REACT_URL,
-}))
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(morgan(":method :url :response-time :status"))
+app.use(morgan(":method :url :response-time :status"));
 app.use(routes);
 
 export default app;
