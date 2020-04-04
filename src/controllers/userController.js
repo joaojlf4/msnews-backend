@@ -54,7 +54,7 @@ const controller = {
 
     user.password = undefined;
 
-    const token = jwt.sign({id: user.id}, authConfig, {
+    const token = jwt.sign({id: user.id}, process.env.AUTH, {
       expiresIn: 86400
     });
 
