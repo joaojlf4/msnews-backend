@@ -6,7 +6,6 @@ import bodyParser from 'body-parser';
 const app = express();
 
 app.use(cors({
-  credentials: true,
   origin: process.env.REACT_URL,
 }))
 app.use(bodyParser.urlencoded({ extended: false }))

@@ -6,7 +6,6 @@ var _bodyparser = require('body-parser'); var _bodyparser2 = _interopRequireDefa
 const app = _express2.default.call(void 0, );
 
 app.use(_cors2.default.call(void 0, {
-  credentials: true,
   origin: process.env.REACT_URL,
 }))
 app.use(_bodyparser2.default.urlencoded({ extended: false }))
