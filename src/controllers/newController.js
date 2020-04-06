@@ -53,7 +53,7 @@ const controller = {
   async update(req, res){
     try{
       const id = req.params.id;
-      const { title, author, bodyData, eye, pictureUrl } = req.body;
+      const { title, eye, pictureUrl, markdown } = req.body;
 
       if(!id || !req.body) return res.status(404).send({ error: "You need didn't provided data enough." });
       
@@ -61,13 +61,12 @@ const controller = {
 
       if(!newModel) return res.status(404).send({ error: "Invalid new." })
 
-      const updatedNew = await New.findByIdAndUpdate(id, {
+      await New.findByIdAndUpdate(id, {
         title,
-        author,
-        bodyData,
         eye,
-        pictureUrl
-      }, {new: true})
+        pictureUrl,
+        markdown,
+      });
 
       return res.status(201).send();
     }catch(err){
