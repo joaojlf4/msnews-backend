@@ -38,7 +38,7 @@ const controller = {
         return res.status(401).send({ error: "You don't have permission to access this resource." });
       }
     }catch(err){
-      return res.send({ error: "There was an error." })
+      return res.send({ error: "There was an error." }, err)
     }
   },
   async authenticate(req, res){
